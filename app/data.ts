@@ -14,7 +14,7 @@ export const projects: Project[] = [
       "A full-featured web application for managing patient records, appointments, and health data. Built with scalable architecture and reusable components.",
     image: "/audiophile.png",
     tech: ["Next.js", "TypeScript", "Material UI"],
-    github: "https://github.com/yourusername/project1",
+    github: "https://github.com/Mat-tech-bit",
     live: "https://mat-audiophile-b4gb.vercel.app/",
   },
 
@@ -25,7 +25,7 @@ export const projects: Project[] = [
       "Interactive application that displays country data with filtering and search functionality using REST API integration.",
     image: "/cgpa.png",
     tech: ["React", "TypeScript", "API"],
-    github: "https://github.com/yourusername/project2",
+    github: "https://github.com/Mat-tech-bit",
     live: "https://cgpa-calc-zg93qv40j-matthew-akinyemis-projects.vercel.app/",
   },
 
@@ -37,7 +37,7 @@ export const projects: Project[] = [
       "Interactive application that displays country data with filtering and search functionality using REST API integration.",
     image: "/countryrest.png",
     tech: ["React", "TypeScript", "API"],
-    github: "https://github.com/yourusername/project2",
+    github: "https://github.com/Mat-tech-bit",
     live: "https://new-country-rest-api.vercel.app/",
   },
 
@@ -48,7 +48,7 @@ export const projects: Project[] = [
       "Interactive application that displays country data with filtering and search functionality using REST API integration.",
     image: "/todo.png",
     tech: ["React", "TypeScript", "API"],
-    github: "https://github.com/yourusername/project2",
+    github: "https://github.com/Mat-tech-bit",
     live: "https://matthew-todo.vercel.app/",
   },
 
@@ -59,7 +59,7 @@ export const projects: Project[] = [
       "Interactive application that displays country data with filtering and search functionality using REST API integration.",
     image: "/portfolio.png",
     tech: ["React", "TypeScript", "API"],
-    github: "https://github.com/yourusername/project2",
+    github: "https://github.com/Mat-tech-bit",
     live: "https://yourprojectlink.com",
   },
 
@@ -71,7 +71,7 @@ export const projects: Project[] = [
       "Interactive application that displays country data with filtering and search functionality using REST API integration.",
     image: "/crystal.jpg",
     tech: ["React", "TypeScript", "API"],
-    github: "https://github.com/yourusername/project2",
+    github: "https://github.com/Mat-tech-bit",
     live: "https://yourprojectlink.com",
   },
 
