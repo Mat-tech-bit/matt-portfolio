@@ -27,6 +27,7 @@ const Navbar = () => {
     { label: "ABOUT", href: "/about" },
     { label: "PROJECT", href: "/projects" },
     { label: "PORTFOLIO", href: "/portfolio" },
+    { label: "CONTACT", href: "/contact" },
   ];
 
   const theme = useTheme();
@@ -90,7 +91,7 @@ const Navbar = () => {
           <Box>
             {navLinks.map((link) => (
                   
-              <Button key={link.href}>
+              <Button component={Link} href={link.href} key={link.href}>
                 {link.label}
               </Button>
             ))}

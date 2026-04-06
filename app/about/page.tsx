@@ -41,7 +41,7 @@ const AboutPage = () => {
             <Card>
               <CardMedia
                 component="img"
-                src="/portfolioPic1.jpg"
+                src="/profile.png"
                 sx={{
                   height: "500px",
                   width: "400px",
@@ -125,7 +125,7 @@ const AboutPage = () => {
             <Card>
               <CardMedia
                 component="img"
-                src="/portfolioPic1.jpg"
+                src="/profile.png"
                 sx={{
                   height: "500px",
                   width: "400px",
