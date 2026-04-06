@@ -74,7 +74,7 @@ const Navbar = () => {
           <Box sx={{ display: "flex" }}>
             <Avatar alt="matthew's avatar" src="/portfolioPic1.jpg" />
             <Typography variant="h4" fontWeight="bold">
-              MattScript
+              Matthew
             </Typography>
           </Box>
           <ThemeToggleButton />
@@ -84,7 +84,7 @@ const Navbar = () => {
           <Box sx={{display: "flex"}}> 
           <Avatar alt="matthew's avatar" src="/portfolioPic1.jpg" />
           <Typography variant="h4" fontWeight="bold">
-            MattScript
+            Matthew
           </Typography>
           </Box>
 
