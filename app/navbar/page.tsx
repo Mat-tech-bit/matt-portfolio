@@ -1,108 +1,167 @@
 "use client";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Avatar,
   Box,
   Button,
+  Container,
   Drawer,
+  IconButton,
   List,
   ListItem,
+  ListItemButton,
   ListItemText,
   Toolbar,
   Typography,
-  useMediaQuery,
-  useTheme,
+  useScrollTrigger,
 } from "@mui/material";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import React, { useState } from "react";
-import IconButton from "@mui/material/IconButton";
-import CloseIcon from '@mui/icons-material/Close';
-import MenuIcon from "@mui/icons-material/Menu";
-
 import { ThemeToggleButton } from "../theme";
 
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/#about" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Contact", href: "/#contact" },
+];
+
 const Navbar = () => {
-  const navLinks = [
-    { label: "HOME", href: "/home" },
-    { label: "ABOUT", href: "/about" },
-    { label: "PROJECT", href: "/projects" },
-    { label: "PORTFOLIO", href: "/portfolio" },
-    { label: "CONTACT", href: "/contact" },
-  ];
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const handleDrawerToggle = () => setOpen(!open);
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
 
   return (
-    <Box sx={{ margin: 2 }}>
-      {/* logo  */}
+    <>
+      <AppBar
+        position="fixed"
+        elevation={0}
+        sx={{
+          backgroundColor: scrolled 
+            ? (theme) => theme.palette.mode === 'dark' 
+              ? "rgba(10, 10, 10, 0.7)" 
+              : "rgba(255, 255, 255, 0.8)"
+            : "transparent",
+          backdropFilter: scrolled ? "blur(12px)" : "none",
+          borderBottom: (theme) => scrolled 
+            ? `1px solid ${theme.palette.mode === 'dark' ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)"}`
+            : "none",
+          color: "text.primary",
+          transition: "all 0.3s ease-in-out",
+          top: 0,
+          left: 0,
+          right: 0,
+        }}
+      >
+        <Container maxWidth="lg">
+          <Toolbar disableGutters sx={{ justifyContent: "space-between", height: 80 }}>
+            {/* Logo */}
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+              <Avatar 
+                alt="Matthew" 
+                src="/portfolioPic1.jpg" 
+                sx={{ width: 40, height: 40, border: "2px solid #3b82f6" }}
+              />
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 800,
+                  letterSpacing: -0.5,
+                  display: { xs: "none", sm: "block" },
+                }}
+              >
+                MATTHEW<span style={{ color: "#3b82f6" }}>.</span>
+              </Typography>
+            </Box>
 
-      {isMobile ? (
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Box>
-            <IconButton edge="start" onClick={handleDrawerToggle}>
-              {open ?    <CloseIcon /> : <MenuIcon/>}
-           
+            {/* Desktop Navigation */}
+            <Box sx={{ display: { xs: "none", md: "flex" }, alignItems: "center", gap: 1 }}>
+              {navLinks.map((link) => (
+                <Button
+                  key={link.label}
+                  component={Link}
+                  href={link.href}
+                  sx={{
+                    color: "text.primary",
+                    px: 2,
+                    "&:hover": { color: "primary.main", bgcolor: "transparent" },
+                  }}
+                >
+                  {link.label}
+                </Button>
+              ))}
+              <Box sx={{ ml: 2 }}>
+                <ThemeToggleButton />
+              </Box>
+            </Box>
+
+            {/* Mobile Actions */}
+            <Box sx={{ display: { xs: "flex", md: "none" }, alignItems: "center", gap: 1 }}>
+              <ThemeToggleButton />
+              <IconButton 
+                sx={{ color: "text.primary" }} 
+                onClick={handleDrawerToggle}
+              >
+                {mobileOpen ? <X /> : <Menu />}
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+
+      {/* Mobile Drawer */}
+      <Drawer
+        anchor="right"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        PaperProps={{
+          sx: {
+            width: "100%",
+            backgroundColor: "background.default",
+            backgroundImage: "none",
+          },
+        }}
+      >
+        <Box sx={{ p: 3 }}>
+          <Box sx={{ display: "flex", justifyContent: "flex-end", mb: 8 }}>
+            <IconButton onClick={handleDrawerToggle}>
+              <X />
             </IconButton>
           </Box>
-
-          <Drawer anchor="left" open={open} onClose={handleDrawerToggle}   PaperProps={{
-    sx: {
-      height: "auto",
-      maxHeight: "100vh",
-      mt: 10,
-    },
-  }}>
-            <Box sx={{ width: 250 }} onClick={handleDrawerToggle}>
-              <List>
-                {navLinks.map((link) => (
-                  <ListItem key={link.href}>
-                    <Link
-                      href={link.href}
-                      style={{ textDecoration: "none", color: "inherit" }}
-                    >
-                      <ListItemText primary={link.label} />
-                    </Link>
-                  </ListItem>
-                ))}
-              </List>
-            </Box>
-          </Drawer>
-          <Box sx={{ display: "flex" }}>
-            <Avatar alt="matthew's avatar" src="/portfolioPic1.jpg" />
-            <Typography variant="h4" fontWeight="bold">
-              Matthew
-            </Typography>
-          </Box>
-          <ThemeToggleButton />
-        </Box>
-      ) : (
-        <Box sx={{ display: "flex", gap: 2, justifyContent: "space-around" }}>
-          <Box sx={{display: "flex"}}> 
-          <Avatar alt="matthew's avatar" src="/portfolioPic1.jpg" />
-          <Typography variant="h4" fontWeight="bold">
-            Matthew
-          </Typography>
-          </Box>
-
-          <Box>
+          <List>
             {navLinks.map((link) => (
-                  
-              <Button component={Link} href={link.href} key={link.href}>
-                {link.label}
-              </Button>
+              <ListItem key={link.label} disablePadding>
+                <ListItemButton
+                  component={Link}
+                  href={link.href}
+                  onClick={handleDrawerToggle}
+                  sx={{ py: 2, textAlign: "center" }}
+                >
+                  <ListItemText 
+                    primary={link.label} 
+                    primaryTypographyProps={{ variant: "h4", fontWeight: 700 }}
+                  />
+                </ListItemButton>
+              </ListItem>
             ))}
-                      <ThemeToggleButton />
-
-             </Box>
+          </List>
         </Box>
-      )}
-
-      {/* navbar */}
-    </Box>
+      </Drawer>
+      {/* Spacer to push content below fixed navbar */}
+      <Toolbar sx={{ height: 80 }} />
+    </>
   );
 };
 

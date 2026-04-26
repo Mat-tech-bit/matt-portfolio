@@ -5,76 +5,53 @@ export type Project = {
   tech: string[];
   github: string;
   live: string;
+  category: string;
 };
 
 export const projects: Project[] = [
   {
-    title: "audiophile e-commerce website",
-    description:
-      "A full-featured web application for managing patient records, appointments, and health data. Built with scalable architecture and reusable components.",
+    title: "Audiophile E-Commerce",
+    description: "A premium audio equipment store with complex state management, persistent cart functionality, and responsive checkout flow.",
     image: "/audiophile.png",
-    tech: ["Next.js", "TypeScript", "Material UI"],
+    tech: ["Next.js", "TypeScript", "Redux", "Material UI"],
     github: "https://github.com/Mat-tech-bit",
     live: "https://mat-audiophile-b4gb.vercel.app/",
+    category: "Web App",
   },
-
-
+  {
+    title: "Health Care Portal",
+    description: "Comprehensive management system for clinics and hospitals featuring patient records, appointment scheduling, and real-time updates.",
+    image: "/healthcenter.png",
+    tech: ["React", "Firebase", "Node.js", "Tailwind"],
+    github: "https://github.com/Mat-tech-bit",
+    live: "https://mat-oauhc.vercel.app/",
+    category: "Software",
+  },
   {
     title: "CGPA Calculator",
-    description:
-      "Interactive application that displays country data with filtering and search functionality using REST API integration.",
+    description: "Academic performance tracking tool designed for university students with automated GPA/CGPA calculations and data persistence.",
     image: "/cgpa.png",
-    tech: ["React", "TypeScript", "API"],
+    tech: ["React", "TypeScript", "MUI", "Local Storage"],
     github: "https://github.com/Mat-tech-bit",
     live: "https://cgpa-calc-zg93qv40j-matthew-akinyemis-projects.vercel.app/",
+    category: "Tool",
   },
-
-  
-
   {
-    title: "Countries Explorer App",
-    description:
-      "Interactive application that displays country data with filtering and search functionality using REST API integration.",
+    title: "Countries Explorer",
+    description: "Data-driven application using REST Countries API with advanced filtering, search, and region-based sorting capabilities.",
     image: "/countryrest.png",
-    tech: ["React", "TypeScript", "API"],
+    tech: ["React", "REST API", "Styled Components"],
     github: "https://github.com/Mat-tech-bit",
     live: "https://new-country-rest-api.vercel.app/",
+    category: "Web App",
   },
-
-
   {
-    title: "Todo App",
-    description:
-      "Interactive application that displays country data with filtering and search functionality using REST API integration.",
+    title: "Task Management Suite",
+    description: "Feature-rich todo application with drag-and-drop, priority levels, and category tagging for maximum productivity.",
     image: "/todo.png",
-    tech: ["React", "TypeScript", "API"],
+    tech: ["React", "TypeScript", "Framer Motion"],
     github: "https://github.com/Mat-tech-bit",
     live: "https://matthew-todo.vercel.app/",
+    category: "Tool",
   },
-
-
-  {
-    title: "Portfolio website",
-    description:
-      "Interactive application that displays country data with filtering and search functionality using REST API integration.",
-    image: "/portfolio.png",
-    tech: ["React", "TypeScript", "API"],
-    github: "https://github.com/Mat-tech-bit",
-    live: "https://yourprojectlink.com",
-  },
-
-
-
-  {
-    title: "Health Center Management System",
-    description:
-      "Interactive application that displays country data with filtering and search functionality using REST API integration.",
-    image: "/crystal.jpg",
-    tech: ["React", "TypeScript", "API"],
-    github: "https://github.com/Mat-tech-bit",
-    live: "https://yourprojectlink.com",
-  },
-
-
 ];
-

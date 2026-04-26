@@ -1,289 +1,213 @@
 "use client";
-
+import React from "react";
 import {
   Box,
   Card,
-  CardContent,
-  CardMedia,
   Typography,
-  useMediaQuery,
-  useTheme,
+  Container,
   Grid,
+  Stack,
+  useTheme,
 } from "@mui/material";
+import { motion } from "framer-motion";
+import { Code2, Search, Palette } from "lucide-react";
+
+const services = [
+  {
+    title: "Software Development",
+    description: "Building scalable, high-performance web applications using modern frameworks and best practices.",
+    icon: <Code2 size={32} />,
+    color: "#3b82f6",
+  },
+  {
+    title: "UI/UX Design",
+    description: "Creating intuitive and visually stunning user interfaces with a focus on user experience and accessibility.",
+    icon: <Palette size={32} />,
+    color: "#10b981",
+  },
+  {
+    title: "SEO Optimization",
+    description: "Optimizing web applications for search engines to increase visibility and drive organic traffic.",
+    icon: <Search size={32} />,
+    color: "#f59e0b",
+  },
+];
+
+const experiences = [
+  {
+    role: "Senior Frontend Developer",
+    company: "TechNova Solutions",
+    period: "2023 - Present",
+    description: "Leading the frontend team in building a next-generation healthcare platform using Next.js and TypeScript.",
+  },
+  {
+    role: "React Developer",
+    company: "Digital Pulsar",
+    period: "2021 - 2023",
+    description: "Developed and maintained multiple client projects, focusing on responsive design and state management.",
+  },
+];
 
 const PortfolioPage = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const isDark = theme.palette.mode === 'dark';
 
   return (
-    <Box>
-      {isMobile ? (
-        /* ================= MOBILE MODE ================= */
+    <Container maxWidth="lg" sx={{ py: { xs: 10, md: 15 } }} id="portfolio">
+      {/* Services Section */}
+      <Box sx={{ mb: { xs: 10, md: 15 } }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: 800,
+              mb: 2,
+              textAlign: "center",
+              fontSize: { xs: "2.5rem", md: "3.5rem" },
+            }}
+          >
+            What I <span style={{ color: "#3b82f6" }}>Do</span>
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              color: "text.secondary",
+              textAlign: "center",
+              mb: 8,
+              maxWidth: "600px",
+              mx: "auto",
+              fontWeight: 400,
+            }}
+          >
+            I provide a wide range of services to help businesses grow and 
+            succeed in the digital world.
+          </Typography>
+        </motion.div>
 
-        <Box>
-          <Box sx={{ margin: 4 }}>
-            {/* Overview */}
-            <Typography variant="h4" fontWeight="bold" sx={{ mb: 3 }}>
-              Overview
-            </Typography>
-
-            <Typography>
-              I am a frontend-focused web developer with over two years of
-              hands-on experience building responsive and user-friendly web
-              applications. I have worked on multiple projects using HTML, CSS,
-              and JavaScript, and I specialize in modern frontend technologies
-              including React, Next.js, TypeScript, and Material UI to create
-              clean, scalable interfaces.
-            </Typography>
-
-            {/* Services */}
-            <Box sx={{ mt: 10 }}>
-              <Card sx={{ mb: 3 }}>
-                <CardMedia
-                  component="img"
-                  src="/crystal.jpg"
-                  alt="Software Development"
-                  height="250"
-                  sx={{ width: "100%" }}
-                />
-
-                <CardContent>
-                  <Typography fontWeight="bold" variant="h5">
-                    Software Development
-                  </Typography>
-                </CardContent>
-              </Card>
-
-              <Card sx={{ mb: 3 }}>
-                <CardMedia
-                  component="img"
-                  src="/secondcrystal.webp"
-                  alt="SEO"
-                  height="250"
-                  sx={{ width: "100%" }}
-                />
-
-                <CardContent>
-                  <Typography fontWeight="bold" variant="h5">
-                    Search Engine Optimization
-                  </Typography>
-                </CardContent>
-              </Card>
-
-              <Card sx={{ mb: 3 }}>
-                <CardMedia
-                  component="img"
-                  src="/fourthcrystal.jpg"
-                  alt="Content Creation"
-                  height="250"
-                  sx={{ width: "100%" }}
-                />
-
-                <CardContent>
-                  <Typography fontWeight="bold" variant="h5">
-                    Content Creation
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-
-            {/* Work Experience */}
-            <Box sx={{ pt: 10 }}>
-              <Typography
-                sx={{ mb: 4 }}
-                variant="h4"
-                fontWeight="bold"
+        <Grid container spacing={4}>
+          {services.map((service, index) => (
+            <Grid size={{ xs: 12, md: 4 }} key={index}>
+              <Box
+                component={motion.div}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                whileHover={{ y: -10 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                WORK EXPERIENCE
-              </Typography>
-
-              <Typography variant="h6">
-                REACT.JS DEVELOPER
-              </Typography>
-
-              <Typography sx={{ mb: 4 }}>
-                I am a React.js developer with over 2 years of experience
-                building interactive, responsive, and user-friendly web
-                applications.
-              </Typography>
-
-              <Typography variant="h6">
-                NEXT.JS DEVELOPER
-              </Typography>
-
-              <Typography sx={{ mb: 4 }}>
-                As a Next.js developer, I create server-side rendered and
-                statically generated applications optimized for performance.
-              </Typography>
-
-              <Typography variant="h6">
-                NEXT.JS + TYPESCRIPT + MATERIAL UI
-              </Typography>
-
-              <Typography sx={{ mb: 4 }}>
-                I build scalable and visually consistent web applications using
-                modern UI systems and type-safe architecture.
-              </Typography>
-            </Box>
-          </Box>
-        </Box>
-      ) : (
-        /* ================= DESKTOP MODE ================= */
-
-        <Box sx={{ px: 10, py: 8 }}>
-          {/* Overview Section */}
-          <Grid container spacing={6} alignItems="center">
-            {/* LEFT TEXT */}
-            <Grid size ={{xs: 12, md: 6}}>
-              <Typography
-                variant="h3"
-                fontWeight="bold"
-                sx={{ mb: 3 }}
-              >
-                Overview
-              </Typography>
-
-              <Typography sx={{ fontSize: "1.1rem" }}>
-                I am a frontend-focused web developer with over two years of
-                hands-on experience building responsive and user-friendly web
-                applications. I specialize in React, Next.js, TypeScript, and
-                Material UI to create scalable, high-performance applications
-                that deliver excellent user experiences.
-              </Typography>
+                <Card
+                  sx={{
+                    height: "100%",
+                    p: 4,
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                    position: "relative",
+                    overflow: "hidden",
+                    border: "1px solid",
+                    borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)",
+                    "&::before": {
+                      content: '""',
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "100%",
+                      height: "4px",
+                      bgcolor: service.color,
+                    },
+                  }}
+                >
+                  <Box
+                    sx={{
+                      p: 1.5,
+                      borderRadius: "12px",
+                      bgcolor: isDark ? `${service.color}20` : `${service.color}10`,
+                      color: service.color,
+                      mb: 3,
+                    }}
+                  >
+                    {service.icon}
+                  </Box>
+                  <Typography variant="h5" fontWeight={700} gutterBottom>
+                    {service.title}
+                  </Typography>
+                  <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                    {service.description}
+                  </Typography>
+                </Card>
+              </Box>
             </Grid>
+          ))}
+        </Grid>
+      </Box>
 
-            {/* RIGHT SERVICES GRID */}
-         
-              <Grid  container spacing={3}>
-                {/* Card 1 */}
-                <Box sx={{display: "flex", justifyContent: "center", flexDirection: "row", alignItems: "center", gap: 4}}>
-                <Grid >
-                  <Card>
-                    <CardMedia
-                      component="img"
-                      height="200"
-                      src="/crystal.jpg"
-                      alt="Software Development"
-                    />
+      {/* Experience Section */}
+      <Box>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: 800,
+              mb: 8,
+              textAlign: "center",
+              fontSize: { xs: "2.5rem", md: "3.5rem" },
+            }}
+          >
+            Work <span style={{ color: "#3b82f6" }}>Experience</span>
+          </Typography>
+        </motion.div>
 
-                    <CardContent>
-                      <Typography
-                        variant="h6"
-                        fontWeight="bold"
-                      >
-                        Software Development
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-
-                {/* Card 2 */}
-                <Grid >
-                  <Card>
-                    <CardMedia
-                      component="img"
-                      height="200"
-                      src="/secondcrystal.webp"
-                      alt="SEO"
-                    />
-
-                    <CardContent>
-                      <Typography
-                        variant="h6"
-                        fontWeight="bold"
-                      >
-                        Search Engine Optimization
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-
-                {/* Card 3 */}
-                <Grid >
-                  <Card>
-                    <CardMedia
-                      component="img"
-                      height="200"
-                      src="/fourthcrystal.jpg"
-                      alt="Content Creation"
-                    />
-
-                    <CardContent>
-                      <Typography
-                        variant="h6"
-                        fontWeight="bold"
-                      >
-                        Content Creation
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-                </Box>
-              </Grid>
-              
-            </Grid>
-         
-
-          {/* Work Experience Section */}
-          <Box sx={{ mt: 12 }}>
-            <Typography
-              variant="h3"
-              fontWeight="bold"
-              sx={{ mb: 6 }}
+        <Stack spacing={4}>
+          {experiences.map((exp, index) => (
+            <Box
+              component={motion.div}
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              Work Experience
-            </Typography>
-
-            <Grid container spacing={6}>
-              {/* React */}
-              <Grid >
-                <Typography
-                  variant="h6"
-                  fontWeight="bold"
-                >
-                  React.js Developer
-                </Typography>
-
-                <Typography sx={{ mt: 2 }}>
-                  Built responsive web applications using reusable components,
-                  efficient state management, and modern frontend practices.
-                </Typography>
-              </Grid>
-
-              {/* Next */}
-              <Grid  >
-                <Typography
-                  variant="h6"
-                  fontWeight="bold"
-                >
-                  Next.js Developer
-                </Typography>
-
-                <Typography sx={{ mt: 2 }}>
-                  Developed high-performance SSR and static web applications
-                  optimized for SEO and scalability.
-                </Typography>
-              </Grid>
-
-              {/* Stack */}
-              <Grid  >
-                <Typography
-                  variant="h6"
-                  fontWeight="bold"
-                >
-                  Next.js + TypeScript + Material UI
-                </Typography>
-
-                <Typography sx={{ mt: 2 }}>
-                  Delivered scalable UI systems using type-safe architecture
-                  and reusable design components.
-                </Typography>
-              </Grid>
-            </Grid>
-          </Box>
-        </Box>
-      )}
-    </Box>
+              <Card 
+                sx={{ 
+                  p: { xs: 4, md: 5 },
+                  border: "1px solid",
+                  borderColor: isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.05)",
+                }}
+              >
+                <Grid container spacing={3} alignItems="center">
+                  <Grid size={{ xs: 12, md: 3 }}>
+                    <Typography variant="h6" fontWeight={800} color="primary">
+                      {exp.period}
+                    </Typography>
+                    <Typography variant="subtitle2" color="text.secondary" fontWeight={600}>
+                      {exp.company}
+                    </Typography>
+                  </Grid>
+                  <Grid size={{ xs: 12, md: 9 }}>
+                    <Typography variant="h5" fontWeight={700} gutterBottom>
+                      {exp.role}
+                    </Typography>
+                    <Typography variant="body1" color="text.secondary" sx={{ lineHeight: 1.7 }}>
+                      {exp.description}
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </Card>
+            </Box>
+          ))}
+        </Stack>
+      </Box>
+    </Container>
   );
 };
 
