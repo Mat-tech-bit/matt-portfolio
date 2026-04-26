@@ -82,7 +82,7 @@ const AboutPage = () => {
                   lineHeight: 1.1,
                   mb: 3,
                   textAlign: { xs: "center", md: "left" },
-                  background: isDark 
+                  background: isDark
                     ? "linear-gradient(135deg, #fff 0%, #3b82f6 100%)"
                     : "linear-gradient(135deg, #0f172a 0%, #3b82f6 100%)",
                   WebkitBackgroundClip: "text",
@@ -99,23 +99,26 @@ const AboutPage = () => {
                 sx={{
                   color: "text.secondary",
                   mb: 5,
-                  maxWidth: "600px",
-                  lineHeight: 1.6,
+                  maxWidth: "700px",
+                  lineHeight: 1.7,
                   fontWeight: 400,
                   textAlign: { xs: "center", md: "left" },
                   mx: { xs: "auto", md: 0 },
                 }}
               >
-                Building high-performance, visually stunning web applications with 
-                modern frontend technologies. Specializing in React, Next.js, and 
-                scalable UI architectures.
+                Architecting high-performance, visually immersive web applications 
+                through modern engineering. Specializing in professional-grade 
+                React and Next.js development, backed by a robust full-stack 
+                foundation in TypeScript, Node.js, and the MERN ecosystem. 
+                Dedicated to engineering scalable architectures and 
+                state-of-the-art digital experiences.
               </Typography>
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <Stack 
-                direction={{ xs: "column", sm: "row" }} 
-                spacing={2} 
+              <Stack
+                direction={{ xs: "column", sm: "row" }}
+                spacing={2}
                 justifyContent={{ xs: "center", md: "flex-start" }}
               >
                 <Button
@@ -154,10 +157,10 @@ const AboutPage = () => {
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <Stack 
-                direction="row" 
-                spacing={3} 
-                sx={{ mt: 8 }} 
+              <Stack
+                direction="row"
+                spacing={3}
+                sx={{ mt: 8 }}
                 justifyContent={{ xs: "center", md: "flex-start" }}
               >
                 {[
@@ -174,8 +177,8 @@ const AboutPage = () => {
                       border: "1px solid",
                       borderColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)",
                       transition: "0.3s",
-                      "&:hover": { 
-                        color: "primary.main", 
+                      "&:hover": {
+                        color: "primary.main",
                         transform: "translateY(-5px)",
                         bgcolor: isDark ? "rgba(59, 130, 246, 0.1)" : "rgba(59, 130, 246, 0.05)",
                       },
@@ -205,13 +208,13 @@ const AboutPage = () => {
                   transform: "translate(-50%, -50%)",
                   width: "120%",
                   height: "120%",
-                  background: isDark 
+                  background: isDark
                     ? "radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%)"
                     : "radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)",
                   zIndex: -1,
                 }}
               />
-              
+
               <Box
                 sx={{
                   position: "relative",
@@ -222,7 +225,7 @@ const AboutPage = () => {
                   overflow: "hidden",
                   border: "1px solid",
                   borderColor: isDark ? "rgba(255, 255, 255, 0.1)" : "rgba(0, 0, 0, 0.05)",
-                  boxShadow: isDark 
+                  boxShadow: isDark
                     ? "0 25px 50px -12px rgba(0, 0, 0, 0.5)"
                     : "0 25px 50px -12px rgba(0, 0, 0, 0.1)",
                 }}
