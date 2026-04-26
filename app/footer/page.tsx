@@ -1,12 +1,39 @@
 "use client";
 import React from "react";
 import { Box, Container, Grid, Typography, Stack, IconButton, Divider, useTheme } from "@mui/material";
-import { Globe, Users, Mail, X, MessageSquare } from "lucide-react";
+import { Mail, Globe } from "lucide-react";
+import FacebookIcon from '@mui/icons-material/Facebook';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import Link from "next/link";
 
 const Footer = () => {
   const theme = useTheme();
   const isDark = theme.palette.mode === 'dark';
+
+  const socialLinks = [
+    { 
+      icon: <FacebookIcon fontSize="small" />, 
+      url: "https://web.facebook.com/matthew.akinyemi.146",
+      hoverColor: "#1877F2"
+    },
+    { 
+      icon: <TwitterIcon fontSize="small" />, 
+      url: "https://twitter.com/Mathew7746",
+      hoverColor: "#1DA1F2"
+    },
+    { 
+      icon: <InstagramIcon fontSize="small" />, 
+      url: "https://www.instagram.com/ak_mat1",
+      hoverColor: "#E4405F"
+    },
+    { 
+      icon: <WhatsAppIcon fontSize="small" />, 
+      url: "https://wa.link/9tkk8l",
+      hoverColor: "#25D366"
+    }
+  ];
 
   return (
     <Box
@@ -45,24 +72,26 @@ const Footer = () => {
               spacing={1.5} 
               justifyContent={{ xs: "center", md: "flex-start" }}
             >
-              {[Globe, Users, X, MessageSquare].map((Icon, i) => (
+              {socialLinks.map((social, i) => (
                 <IconButton
                   key={i}
                   size="small"
+                  onClick={() => window.open(social.url, "_blank")}
                   sx={{
-                    color: "text.secondary",
+                    color: isDark ? "text.primary" : "#4b5563",
                     bgcolor: isDark ? "rgba(255, 255, 255, 0.03)" : "rgba(0, 0, 0, 0.03)",
                     border: "1px solid",
                     borderColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)",
+                    transition: "0.3s",
                     "&:hover": { 
-                      color: "primary.main", 
-                      bgcolor: isDark ? "rgba(59, 130, 246, 0.1)" : "rgba(59, 130, 246, 0.05)",
+                      color: "white", 
+                      bgcolor: social.hoverColor,
+                      borderColor: social.hoverColor,
                       transform: "translateY(-3px)",
                     },
-                    transition: "0.3s",
                   }}
                 >
-                  <Icon size={18} />
+                  {social.icon}
                 </IconButton>
               ))}
             </Stack>
