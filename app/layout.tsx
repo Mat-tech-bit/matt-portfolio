@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import "./globals.css";
 import { Roboto } from "next/font/google";
@@ -12,6 +12,12 @@ const roboto = Roboto({
   display: "swap",
   variable: "--font-roboto",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: "Matthew Akinyemi | Software Engineer & Designer",
@@ -38,9 +44,11 @@ export default function RootLayout({
       <body className={roboto.variable}>
         <AppRouterCacheProvider>
           <ThemeToggleProvider>
-            <Navbar />
-            <main>{children}</main>
-            <Footer />
+            <div style={{ overflowX: "hidden", width: "100%", position: "relative" }}>
+              <Navbar />
+              <main>{children}</main>
+              <Footer />
+            </div>
           </ThemeToggleProvider>
         </AppRouterCacheProvider>
       </body>
