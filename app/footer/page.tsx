@@ -13,23 +13,23 @@ const Footer = () => {
   const isDark = theme.palette.mode === 'dark';
 
   const socialLinks = [
-    { 
-      icon: <FacebookIcon fontSize="small" />, 
+    {
+      icon: <FacebookIcon fontSize="small" />,
       url: "https://web.facebook.com/matthew.akinyemi.146",
       hoverColor: "#1877F2"
     },
-    { 
-      icon: <TwitterIcon fontSize="small" />, 
+    {
+      icon: <TwitterIcon fontSize="small" />,
       url: "https://twitter.com/Mathew7746",
       hoverColor: "#1DA1F2"
     },
-    { 
-      icon: <InstagramIcon fontSize="small" />, 
+    {
+      icon: <InstagramIcon fontSize="small" />,
       url: "https://www.instagram.com/ak_mat1",
       hoverColor: "#E4405F"
     },
-    { 
-      icon: <WhatsAppIcon fontSize="small" />, 
+    {
+      icon: <WhatsAppIcon fontSize="small" />,
       url: "https://wa.link/9tkk8l",
       hoverColor: "#25D366"
     }
@@ -49,27 +49,27 @@ const Footer = () => {
       <Container maxWidth="lg">
         <Grid container spacing={{ xs: 6, md: 4 }} sx={{ mb: 8 }}>
           <Grid size={{ xs: 12, md: 4 }}>
-            <Typography 
-              variant="h5" 
-              fontWeight={800} 
+            <Typography
+              variant="h5"
+              fontWeight={800}
               sx={{ mb: 3, textAlign: { xs: "center", md: "left" } }}
             >
               MATTHEW<span style={{ color: "#3b82f6" }}>.</span>
             </Typography>
-            <Typography 
-              variant="body1" 
-              color="text.secondary" 
-              sx={{ 
-                mb: 4, 
-                maxWidth: { xs: "none", md: "300px" }, 
-                textAlign: { xs: "center", md: "left" } 
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{
+                mb: 4,
+                maxWidth: { xs: "none", md: "300px" },
+                textAlign: { xs: "center", md: "left" }
               }}
             >
               Building the future of the web with passion and precision. Let's create something extraordinary together.
             </Typography>
-            <Stack 
-              direction="row" 
-              spacing={1.5} 
+            <Stack
+              direction="row"
+              spacing={1.5}
               justifyContent={{ xs: "center", md: "flex-start" }}
             >
               {socialLinks.map((social, i) => (
@@ -83,8 +83,8 @@ const Footer = () => {
                     border: "1px solid",
                     borderColor: isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(0, 0, 0, 0.08)",
                     transition: "0.3s",
-                    "&:hover": { 
-                      color: "white", 
+                    "&:hover": {
+                      color: "white",
                       bgcolor: social.hoverColor,
                       borderColor: social.hoverColor,
                       transform: "translateY(-3px)",
@@ -143,7 +143,7 @@ const Footer = () => {
               <Box sx={{ display: "flex", gap: 1.5, alignItems: "center" }}>
                 <Mail size={18} color="#3b82f6" />
                 <Typography variant="body2" color="text.secondary">
-                  matthew.akinyemi@email.com
+                  matthewakinyemi24@gmail.com
                 </Typography>
               </Box>
               <Box sx={{ display: "flex", gap: 1.5, alignItems: "center" }}>
