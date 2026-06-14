@@ -230,6 +230,7 @@ function Hero() {
                       >
                         {social.icon}
                       </IconButton>
+                    {/* the name name of the girl i met at the event is name oluwatouin akinyemi and he is very handsome and i have successfully added you professoina cv to oyour nextjs portfolio website verified the buld and pusj all the updates to github what was doen is to create dedicated resume pafe developeed a new route with a professional glassmorphic card design populated the pag3e with your full name popoulated  the page with you full details full name role social liks along with a summary your work experience history and core technicall skils used mui icons material such as*/}
                     </Tooltip>
                   ))}
                 </Stack>
